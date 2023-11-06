@@ -1,7 +1,11 @@
+import ContactRowComponent from "./Components/ContactRowComponent";
+import IntroSectionComponent from "./Components/IntroSectionComponent";
+
 function HomeView() {
   return (
     <div>
-      <h1>Home View</h1>
+      <IntroSectionComponent />
+      <ContactRowComponent />
     </div>
   );
 }
