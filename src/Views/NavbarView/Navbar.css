@@ -1,0 +1,8 @@
+.navbar-container {
+  max-width: 90rem;
+  margin: auto;
+}
+
+.link-border:hover {
+  border-bottom: 1px solid black;
+}
