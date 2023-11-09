@@ -1,5 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import "../../../test.css";
+
 function BlogPostListComponent() {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -10,6 +12,7 @@ function BlogPostListComponent() {
       .then((response) => response.json())
       .then((data) => {
         setPosts(data);
+        console.log(data);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -21,35 +24,44 @@ function BlogPostListComponent() {
   return (
     <div className="container mt-4">
       {[...posts].reverse().map((post) => (
-        <div className="row">
+        <div className="row mb-5">
           <div className="col-12">
             <header className="mb-4">
               <h1>{post.title}</h1>
             </header>
+            <p className="text-muted">
+              Posted by: {post.userName}, Posted on: {post.datePostedFormatted}
+            </p>
+            <p>{post.categoryName}</p>
+            <div className="d-flex justify-content-center">
+              <p style={{ maxWidth: "800px" }}>{post.content}</p>
+            </div>
             <div className="embed-responsive embed-responsive-16by9 mb-4">
               <iframe
                 className="embed-responsive-item"
-                src={post.yotubeUrl}
+                src={post.youtubeUrl}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               ></iframe>
             </div>
-            <p className="text-muted">
-              Posted by: {post.userName}, Posted on: {post.datePostedFormatted}
-            </p>
-            <p>{post.categoryName}</p>
+
             {/* Image placeholders */}
             <div className="row">
-              {Array.from({ length: 10 }).map((_, index) => (
-                <div key={index} className="col-md-4 col-12 mb-4">
-                  <img
-                    src={`path_to_image_${index + 1}`}
-                    className="img-fluid"
-                    alt={`Blog post image ${index + 1}`}
-                  />
-                </div>
-              ))}
+              {post.imageUrls.map(
+                (
+                  type,
+                  index // Corrected the map function syntax
+                ) => (
+                  <div key={index} className="col-md-4 col-12 mb-4">
+                    <img
+                      src={type}
+                      className="img-fluid"
+                      alt={`Blog post image ${index + 1}`}
+                    />
+                  </div>
+                )
+              )}
             </div>
           </div>
         </div>
