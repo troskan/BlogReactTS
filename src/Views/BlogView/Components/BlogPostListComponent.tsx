@@ -1,29 +1,54 @@
-import React from "react";
+import { Post } from "../../../Interfaces/interface";
 import { useEffect, useState } from "react";
-import "../../../test.css";
 
 function BlogPostListComponent() {
-  const [posts, setPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [requestError, setRequestError] = useState<string>("");
 
   useEffect(() => {
     fetch("https://blogweb.azurewebsites.net/api/Post")
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+
       .then((data) => {
         setPosts(data);
         console.log(data);
         setIsLoading(false);
       })
-      .catch((error) => {
-        setError(true);
+      .catch((error: Error) => {
+        setRequestError(error.message);
         setIsLoading(false);
         console.error("Error:", error);
       });
   }, []);
+
+  if (isLoading)
+    return (
+      <div className="d-flex justify-content-center shadow">
+        <p>Loading...</p>
+      </div>
+    );
+  if (requestError)
+    return (
+      <div className="d-flex justify-content-center">
+        <p className="bg-warning p-2 rounded">Error: {requestError}</p>
+      </div>
+    );
+  if (posts.length === 0)
+    return (
+      <div className="d-flex justify-content-center">
+        <p>No posts available.</p>
+      </div>
+    );
+
   return (
     <div className="container mt-4">
-      {[...posts].reverse().map((post) => (
+      {[...posts].reverse().map((post: Post) => (
         <div className="row mb-5">
           <div className="col-12">
             <header className="mb-4">
