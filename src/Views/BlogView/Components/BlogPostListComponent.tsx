@@ -30,7 +30,7 @@ function BlogPostListComponent() {
 
   if (isLoading)
     return (
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center pt-5">
         <p>Loading...</p>
       </div>
     );
