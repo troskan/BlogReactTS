@@ -1,51 +1,59 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import NavigationContext from "../../Contexts/NavigationContext";
 
-import "./Navbar.css";
-function NavbarView() {
+const NavbarComponent: React.FC = () => {
   const { setCurrentNavigation } = useContext(NavigationContext);
+  const handleNavClick = (navigation: string) => {
+    setCurrentNavigation(navigation);
+    console.log(navigation);
+    console.log("Click!");
+  };
 
   return (
-    <>
-      <div className="navbar-container">
-        <div className="ms-5 me-5 d-flex ">
-          <nav className="navbar navbar-expand-lg navbar-light w-100 d-flex justify-content-between">
-            <a
-              className="navbar-brand fs-2 fw-bold"
-              href="#"
-              onClick={() => setCurrentNavigation("home")}
+    <Navbar bg="light" expand="lg" className="navbar-custom shadow">
+      <Container fluid>
+        <Navbar.Brand
+          onClick={() => handleNavClick("home")}
+          className="mx-lg-auto"
+        >
+          Alvin Strandberg
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav className="mx-auto my-2 my-lg-0" navbarScroll>
+            <Nav.Link
+              className="nav-link-custom border border-top-0 border-bottom-0"
+              onClick={() => handleNavClick("home")}
             >
-              Welcome
-            </a>
-
-            <div className="d-flex justify-content-center flex-grow-1">
-              <a
-                className="mx-2 text-decoration-none text-dark link-border"
-                href="#"
-                onClick={() => setCurrentNavigation("home")}
-              >
-                Home
-              </a>
-              <a
-                className="mx-2 text-decoration-none text-dark under link-border"
-                href="#"
-                onClick={() => setCurrentNavigation("blog")}
-              >
-                Browse Blog
-              </a>
-            </div>
-
-            <button className="bg-black text-light btn rounded-0">Join</button>
-          </nav>
-        </div>
-      </div>
-      <div
-        className="bg-dark border-1 border-black "
-        style={{ height: "1px" }}
-      ></div>
-      <div style={{ height: "30px" }}></div>
-    </>
+              About me
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => handleNavClick("blog")}
+              className="nav-link-custom border-end "
+            >
+              Blog
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => handleNavClick("portfolio")}
+              className="nav-link-custom border-end"
+            >
+              Portfolio
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => handleNavClick("news")}
+              className="nav-link-custom border-end"
+            >
+              News
+            </Nav.Link>
+            {/* ... other links ... */}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
-}
+};
 
-export default NavbarView;
+export default NavbarComponent;

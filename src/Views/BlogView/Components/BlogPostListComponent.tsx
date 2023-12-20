@@ -1,5 +1,6 @@
 import { Post } from "../../../Interfaces/interface";
 import { useEffect, useState } from "react";
+import { formatDistanceToNow } from "date-fns";
 
 function BlogPostListComponent() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -7,7 +8,7 @@ function BlogPostListComponent() {
   const [requestError, setRequestError] = useState<string>("");
 
   useEffect(() => {
-    fetch("https://blogweb.azurewebsites.net/api/Post")
+    fetch("https://blog-backend-dmn0.onrender.com/api/Post")
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -29,7 +30,7 @@ function BlogPostListComponent() {
 
   if (isLoading)
     return (
-      <div className="d-flex justify-content-center shadow">
+      <div className="d-flex justify-content-center">
         <p>Loading...</p>
       </div>
     );
@@ -49,13 +50,16 @@ function BlogPostListComponent() {
   return (
     <div className="container mt-4">
       {[...posts].reverse().map((post: Post) => (
-        <div className="row mb-5">
+        <div className="row mb-5 shadow rounded-1">
           <div className="col-12">
             <header className="mb-4">
-              <h1>{post.title}</h1>
+              <h1 className="pt-3">{post.title}</h1>
             </header>
             <p className="text-muted">
-              Posted by: {post.userName}, Posted on: {post.datePostedFormatted}
+              Posted by: {post.userName}, Posted on:{" "}
+              {formatDistanceToNow(new Date(post.datePostedFormatted), {
+                addSuffix: true,
+              })}
             </p>
             <p>{post.categoryName}</p>
             <div className="d-flex justify-content-center">
@@ -81,7 +85,7 @@ function BlogPostListComponent() {
                   <div key={index} className="col-md-4 col-12 mb-4">
                     <img
                       src={type}
-                      className="img-fluid"
+                      className="img-fluid rounded-1"
                       alt={`Blog post image ${index + 1}`}
                     />
                   </div>
