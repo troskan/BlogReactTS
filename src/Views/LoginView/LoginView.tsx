@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ControlPanelView from "../ControlPanelView/Containers/ControlPanelView";
 
 interface LoginResponse {
   token: string;
@@ -7,26 +8,31 @@ interface LoginResponse {
 const LoginView: React.FC = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
 
     try {
-      const response = await fetch("https://your-api-endpoint/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      });
+      const response = await fetch(
+        "https://blog-backend-dmn0.onrender.com/authentication/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password, email }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Login failed!");
       }
 
-      const data: LoginResponse = await response.json();
-      localStorage.setItem("token", data.token);
+      // const data: LoginResponse = await response.json();
+      localStorage.setItem("token", "test");
+      return <ControlPanelView />;
     } catch (error: any) {
       setErrorMessage(error.message);
     }
@@ -59,6 +65,19 @@ const LoginView: React.FC = () => {
               className="form-control"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+
+          <div className="col-md-6 mb-3">
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              className="form-control"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
         </div>
