@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ControlPanelView from "../ControlPanelView/Containers/ControlPanelView";
+import AuthenticationContext from "../../Contexts/AuthenticationContext";
 
 interface LoginResponse {
   token: string;
@@ -10,6 +11,7 @@ const LoginView: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
+  const { setIsLoggedIn } = useContext(AuthenticationContext);
 
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -27,13 +29,14 @@ const LoginView: React.FC = () => {
       );
 
       if (!response.ok) {
+        setIsLoggedIn(false);
         throw new Error("Login failed!");
+      } else if (response.ok) {
+        setIsLoggedIn(true);
+        return <ControlPanelView />;
       }
-
-      // const data: LoginResponse = await response.json();
-      localStorage.setItem("token", "test");
-      return <ControlPanelView />;
     } catch (error: any) {
+      setIsLoggedIn(false);
       setErrorMessage(error.message);
     }
   };

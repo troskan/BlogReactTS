@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import AuthenticationContext from "../../Contexts/AuthenticationContext";
 import NavigationContext from "../../Contexts/NavigationContext";
 
 const NavbarComponent: React.FC = () => {
+  const { isLoggedIn } = useContext(AuthenticationContext);
   const { setCurrentNavigation } = useContext(NavigationContext);
   const handleNavClick = (navigation: string) => {
     setCurrentNavigation(navigation);
@@ -13,7 +15,7 @@ const NavbarComponent: React.FC = () => {
   };
 
   return (
-    <Navbar bg="light" expand="lg" className="navbar-custom shadow">
+    <Navbar bg="light" expand="lg" className="mb-5 navbar-custom shadow">
       <Container fluid>
         <Navbar.Brand
           onClick={() => handleNavClick("home")}
@@ -48,6 +50,14 @@ const NavbarComponent: React.FC = () => {
             >
               News
             </Nav.Link>
+            {isLoggedIn && (
+              <Nav.Link
+                onClick={() => handleNavClick("admin")}
+                className="nav-link-custom border-end"
+              >
+                Admin
+              </Nav.Link>
+            )}
             {/* ... other links ... */}
           </Nav>
         </Navbar.Collapse>
