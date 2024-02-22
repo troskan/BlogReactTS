@@ -28,7 +28,7 @@ function App() {
   }, [setCurrentNavigation]);
   return (
     <>
-      <div className="ms-1 me-1 bg-white pb-5 app-min-height">
+      <div className="bg-white pb-5 app-min-height">
         <AuthenticationContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
           <NavigationContext.Provider
             value={{ currentNavigation, setCurrentNavigation }}
