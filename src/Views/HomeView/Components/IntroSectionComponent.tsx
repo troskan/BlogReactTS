@@ -1,12 +1,14 @@
 import profilePic from "../../../assets/profile-pic-blur.png";
-
+import "./IntroSection.css";
 function IntroSectionComponent() {
   return (
     <div className="container d-flex align-items-center flex-wrap justify-content-center">
-      <section style={{ maxWidth: "600px" }} className="m-5">
-        <h2>Hello!👋</h2>
+      <section style={{ maxWidth: "600px" }} className="m-5 mt-0">
+        <h2>
+          Hello!<span className="wave">👋</span>
+        </h2>
         <p>
-          My name is Alvin and I'm 27 years old. I have been working as a
+          My name is Alvin and I'm 28 years old. I have been working as a
           carpenter for 7 years and have just switched career to programming
           which I totally love!
           <br />

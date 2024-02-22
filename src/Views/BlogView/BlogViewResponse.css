@@ -1,0 +1,23 @@
+/* Define the default font size */
+body {
+  font-size: 16px;
+}
+
+/* Media query for smaller devices */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Media query for even smaller devices */
+@media screen and (max-width: 480px) {
+  p,
+  span {
+    font-size: 12px;
+  }
+  h1,
+  h2 {
+    font-size: 16px;
+  }
+}

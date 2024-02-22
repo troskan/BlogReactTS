@@ -1,3 +1,21 @@
 .box {
   background-color: rgb(237, 255, 253);
+  background-color: #ffdee9;
+  background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+  opacity: 0.9;
+  animation: movingBackground 5s infinite linear;
+}
+
+@keyframes movingBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 150% 50%;
+  }
+}
+
+.hover:hover {
+  background-color: rgb(255, 255, 255);
+  opacity: 1;
 }

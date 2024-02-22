@@ -15,7 +15,7 @@ const NavbarComponent: React.FC = () => {
   };
 
   return (
-    <Navbar bg="light" expand="lg" className="mb-5 navbar-custom shadow">
+    <Navbar bg="light" expand="lg" className="mb-3 navbar-custom shadow">
       <Container fluid>
         <Navbar.Brand
           onClick={() => handleNavClick("home")}
