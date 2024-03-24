@@ -9,6 +9,7 @@ import BlogView from "./Views/BlogView/BlogView";
 import ControlPanelView from "./Views/ControlPanelView/Containers/ControlPanelView";
 import AuthenticationContext from "./Contexts/AuthenticationContext";
 import EditBlogPostComponent from "./Views/ControlPanelView/Components/EditBlogPostComponent";
+import PortfolioView from "./Views/PortfolioView/PortfolioView";
 
 function App() {
   const [currentNavigation, setCurrentNavigation] = useState<string>("home");
@@ -36,6 +37,7 @@ function App() {
             <NavbarView />
             {currentNavigation === "home" ? <HomeView /> : null}
             {currentNavigation === "blog" ? <BlogView /> : null}
+            {currentNavigation === "portfolio" ? <PortfolioView /> : null}
             {currentNavigation === "controlpanel" ? <ControlPanelView /> : null}
             {currentNavigation === "viewpost" ? (
               <EditBlogPostComponent postId={7} />

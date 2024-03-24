@@ -6,9 +6,22 @@
   font-family: "Open Sans", sans-serif;
 }
 
+html,
 body {
-  overflow: scroll;
-  background-color: black !important;
+  height: 100%; /* Ensure at least full height of the viewport */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  /* overflow: scroll; */
+  background-color: black;
   background-image: url(https://images.unsplash.com/photo-1633430300352-bcb3420c0ed5?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
   background-repeat: no-repeat;
   background-size: cover;

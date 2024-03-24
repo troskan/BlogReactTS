@@ -44,12 +44,12 @@ const NavbarComponent: React.FC = () => {
             >
               Portfolio
             </Nav.Link>
-            <Nav.Link
+            {/* <Nav.Link
               onClick={() => handleNavClick("news")}
               className="nav-link-custom border-end"
             >
               News
-            </Nav.Link>
+            </Nav.Link> */}
             {isLoggedIn && (
               <Nav.Link
                 onClick={() => handleNavClick("admin")}
