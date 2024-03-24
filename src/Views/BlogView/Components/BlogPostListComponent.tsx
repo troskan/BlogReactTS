@@ -50,7 +50,7 @@ function BlogPostListComponent() {
   return (
     <div className="container mt-4">
       {[...posts].reverse().map((post: Post) => (
-        <div className="row mb-5 shadow rounded-1">
+        <div id={post.postID.toString()} className="row mb-5 shadow rounded-1">
           <div className="col-12">
             <header className="mb-4">
               <h1 className="pt-3">{post.title}</h1>

@@ -1,3 +1,26 @@
+.remove-link {
+  color: inherit; /* Gör så att länkens färg ärver från föräldraelementet */
+  text-decoration: none; /* Tar bort understrykningen */
+  background-color: transparent; /* Tar bort bakgrundsfärg */
+  font-family: inherit; /* Länken ärver typsnitt från föräldraelementet */
+  font-size: inherit; /* Länken ärver textstorlek från föräldraelementet */
+  cursor: auto; /* Tar bort handpekaren som normalt visas för länkar */
+}
+
+footer {
+  position: fixed; /* Gör att footern är fast vid en position på skärmen */
+  left: 0;
+  bottom: 0; /* Fäster footern längst ner på skärmen */
+  width: 100%; /* Gör att footern sträcker sig över hela sidans bredd */
+  background-color: hsla(0, 0%, 100%, 0.237); /* Exempelfärg, kan ändras */
+  text-align: center; /* Centrerar innehållet i footern */
+  padding: 5px 0; /* Lägger till lite utrymme inuti footern */
+}
+
+footer::hover {
+  background-color: hsla(0, 0%, 100%, 0.748);
+}
+
 /* Define the default font size */
 body {
   font-size: 16px;

@@ -1,4 +1,5 @@
 interface Post {
+  postID: number;
   title: string;
   content: string;
   categoryName: string;

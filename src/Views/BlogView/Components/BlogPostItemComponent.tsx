@@ -8,11 +8,12 @@ interface BlogPostItemProps {
   header: string;
   date: string;
   urls: string[];
+  href: string;
 }
 
 // Refactor the component to use props
 const BlogPostItemComponent: React.FC<BlogPostItemProps> = (props) => {
-  const { header, date, urls } = props; // Destructuring props for easier access
+  const { header, date, urls, href } = props; // Destructuring props for easier access
 
   // Styles
   const customStyle = {
@@ -34,6 +35,7 @@ const BlogPostItemComponent: React.FC<BlogPostItemProps> = (props) => {
     <div className="d-flex flex-grow-0 flex-column m-2">
       <div
         className="rounded-3 box border shadow hover pb-2"
+        href={"#" + href}
         style={customStyle}
       >
         <div>

@@ -52,19 +52,25 @@ function BlogView() {
         <LoadingComponent /> // Show LoadingComponent when isLoading is true
       ) : (
         <div>
-          <div className="d-flex justify-content-center flex-wrap">
+          <div id="top" className="d-flex justify-content-center flex-wrap">
             {posts.map((post, index) => (
-              <BlogPostItemComponent
-                key={index}
-                header={post.title}
-                date={post.datePostedFormatted}
-                urls={post.imageUrls}
-              />
+              <a className="remove-link" href={"#" + post.postID.toString()}>
+                <BlogPostItemComponent
+                  key={index}
+                  header={post.title}
+                  date={post.datePostedFormatted}
+                  urls={post.imageUrls}
+                  href={post.postID.toString()}
+                />
+              </a>
             ))}
           </div>
           <BlogPostListComponent />
         </div>
       )}
+      <footer>
+        <a href="#top">Back to top</a>
+      </footer>
     </div>
   );
 }
