@@ -8,3 +8,7 @@
 } */
 .border-custom {
 }
+
+.text-small {
+  font-weight: 5px;
+}

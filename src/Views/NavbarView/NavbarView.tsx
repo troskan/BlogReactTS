@@ -33,17 +33,18 @@ const NavbarComponent: React.FC = () => {
               About me
             </Nav.Link>
             <Nav.Link
-              onClick={() => handleNavClick("blog")}
-              className="nav-link-custom border-end "
-            >
-              Blog
-            </Nav.Link>
-            <Nav.Link
               onClick={() => handleNavClick("portfolio")}
               className="nav-link-custom border-end"
             >
               Portfolio
             </Nav.Link>
+            <Nav.Link
+              onClick={() => handleNavClick("blog")}
+              className="nav-link-custom border-end "
+            >
+              Blog
+            </Nav.Link>
+
             {/* <Nav.Link
               onClick={() => handleNavClick("news")}
               className="nav-link-custom border-end"

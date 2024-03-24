@@ -9,6 +9,7 @@ import AzureImg from "../../assets/azure.png";
 import IdentityImg from "../../assets/two-factor-authentication.png";
 import CSharpImg from "../../assets/c-sharp.png";
 import GitImg from "../../assets/git.png";
+import ReactImg from "../../assets/atom.png";
 
 import AuthenticationContext from "../../Contexts/AuthenticationContext";
 import NavigationContext from "../../Contexts/NavigationContext";
@@ -23,18 +24,21 @@ const PortfolioView: React.FC = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 text-center">
       {" "}
-      <h1 className="text-start">
+      <h1 className="">
         <span className="blue-color">&lt; </span>Full Stack Developer
         <span className="blue-color"> /&gt;</span>
       </h1>
-      <h5 className="text-start">
+      <h5 className="">
         <span className="blue-color">&lt; </span>.Net Web Development
         <span className="blue-color"> /&gt;</span>
       </h5>
-      <div className="text-start">
-        <h2>Areas of Competence</h2>
+      <div className="text-start mt-5 ms-5">
+        <h2>
+          <span className="green-color">&lt; </span>Areas of Competence
+          <span className="green-color"> /&gt;</span>
+        </h2>
         <ul>
           <li>Frontend Development</li>
           <li>Backend Development</li>
@@ -42,23 +46,32 @@ const PortfolioView: React.FC = () => {
           <li>Cloud Development</li>
         </ul>
       </div>
-      <div className="text-start">
-        <h2>Unique Skills</h2>
+      <div className="text-start ms-5">
+        <h2>
+          <span className="green-color">&lt; </span>Unique Skills
+          <span className="green-color"> /&gt;</span>
+        </h2>
         <ul>
           <li>
             CIAM & IAM - Customer identity access management both B2B and B2C
           </li>
           <li>Microsoft Entra - External Identities / Microsoft Graph API</li>
+          <li>Authentication & Authorization Concepts</li>
+
           <li>Logistics Flow</li>
           <li>Zebra Programming Language</li>
           <li>Azure Enviorment</li>
         </ul>
       </div>
-      <div className="text-start">
-        <h2>Tech Stack</h2>
+      <div className="text-start ms-5">
+        <h2>
+          <span className="green-color">&lt; </span>Tech Stack
+          <span className="green-color"> /&gt;</span>
+        </h2>
         <ul>
           <li>.Net</li>
           <li>C#</li>
+          <li>React / Vite / TypeScript</li>
           <li>Javascript / HTML / CSS</li>
           <li>MSSQL</li>
           <li>Zebra Programming Language</li>
@@ -75,7 +88,7 @@ const PortfolioView: React.FC = () => {
           />
           <img
             className="contact-img img-fluid flex-shrink-1"
-            src={SqlServerImg}
+            src={ReactImg}
             alt=""
           />
           <img
@@ -85,17 +98,23 @@ const PortfolioView: React.FC = () => {
           />
           <img
             className="contact-img img-fluid flex-shrink-1"
+            src={GitImg}
+            alt=""
+          />
+          <img
+            className="contact-img img-fluid flex-shrink-1"
             src={IdentityImg}
             alt=""
           />
           <img
             className="contact-img img-fluid flex-shrink-1"
-            src={CSharpImg}
+            src={SqlServerImg}
             alt=""
           />
+
           <img
             className="contact-img img-fluid flex-shrink-1"
-            src={GitImg}
+            src={CSharpImg}
             alt=""
           />
         </div>
