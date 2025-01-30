@@ -29,19 +29,20 @@ function App() {
   }, [setCurrentNavigation]);
   return (
     <>
-      <div className="bg-white pb-5 app-min-height">
+      <div className="pb-5 app-min-height">
         <AuthenticationContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
           <NavigationContext.Provider
             value={{ currentNavigation, setCurrentNavigation }}
           >
-            <NavbarView />
+            {/* <NavbarView />
             {currentNavigation === "home" ? <HomeView /> : null}
             {currentNavigation === "blog" ? <BlogView /> : null}
             {currentNavigation === "portfolio" ? <PortfolioView /> : null}
             {currentNavigation === "controlpanel" ? <ControlPanelView /> : null}
             {currentNavigation === "viewpost" ? (
               <EditBlogPostComponent postId={7} />
-            ) : null}
+            ) : null} */}
+            <HomeView />
           </NavigationContext.Provider>
         </AuthenticationContext.Provider>
       </div>

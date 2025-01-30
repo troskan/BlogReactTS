@@ -1,26 +1,38 @@
 import profilePic from "../../../assets/profile-pic-blur.png";
 import "./IntroSection.css";
 function IntroSectionComponent() {
+  const birthDate = new Date("1996-04-08");
+  const today = new Date();
+
+  const age =
+    today.getFullYear() -
+    birthDate.getFullYear() -
+    (today.getMonth() < birthDate.getMonth() ||
+    (today.getMonth() === birthDate.getMonth() &&
+      today.getDate() < birthDate.getDate())
+      ? 1
+      : 0);
+
   return (
     <div className="container d-flex align-items-center flex-wrap justify-content-center">
       <section style={{ maxWidth: "600px" }} className="m-5 mt-0">
         <h2>
-          Hello!<span className="wave">👋</span>
+          Hi<span className="wave">👋</span>
         </h2>
+        <p>Welcome to my little domain, feel at home.</p>
         <p>
-          My name is Alvin and I'm 28 years old. I have been working as a
-          carpenter for 7 years and have just switched career to programming
-          which I totally love!
+          My name is Alvin and I'm {age} years old. Working as a system
+          developer.
           <br />
-          <br /> If I were to describe myself I'd say I'm a happy and positive
-          person, but if you really would like to know more about me dont
-          hesitate to contact me!
+          <br /> I mainly work backend, passion for building robust systems.
           <br />
-          For more info about who I am and what I do head over to my{" "}
-          <a href="/blog">blog</a>.
-          <br /> <br /> Contact:
+          <br /> Contact:&nbsp;
           <a href="mailto: alvin.strandberg@proton.me">
-            &nbsp;alvin.strandberg@proton.me
+            alvin.strandberg@proton.me
+          </a>
+          <br /> <br />
+          <a href="www.linkedin.com/in/alvin-strandberg-612954253">
+            linkedin.com/in/alvin-strandberg
           </a>
         </p>
       </section>

@@ -1,0 +1,16 @@
+.bottom {
+  width: 100px;
+  height: 1.3px;
+  background-color: rgba(255, 255, 255, 0.504);
+}
+
+.top {
+  width: 1px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.504);
+}
+
+.bottomline {
+  height: 1px;
+  width: 100%;
+}
